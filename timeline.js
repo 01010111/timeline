@@ -108,7 +108,7 @@ function initialize_poll_selector(sel, tbl, cols) {
 function set_background_image() {
 	let bg_img = document.querySelector('body').getAttribute('bg-image');
 	let slug = window.location.pathname.substring(1, window.location.pathname.lastIndexOf('/'));
-	trace(slug);
+	trace(slug, window.location.pathname);
 	document.documentElement.style.setProperty('--bg-image', `url(${slug}/${bg_img})`);
 }
 set_background_image();
