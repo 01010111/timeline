@@ -1,0 +1,51 @@
+{
+	"Add new event": {
+		"prefix": "event",
+		"body": [
+			"<event date=\"\">",
+			"\t<h1></h1>",
+			"\t<quote></quote>",
+			"\t<source-link src=\"\"></source-link>",
+			"</event>"
+		]
+	},
+	"Add new poll": {
+		"prefix": "poll",
+		"body": [
+			"<poll date=\"\">",
+			"\t<h1></h1>",
+			"\t<data>",
+			"\t\t<table>",
+			"\t\t\t<tr>",
+			"\t\t\t\t<td class=\"label\"></td>",
+			"\t\t\t\t<td></td>",
+			"\t\t\t</tr>",
+			"\t\t</table>",
+			"\t</data>",
+			"\t<source-link src=\"\"></source-link>",
+			"</poll>"
+		]
+	},
+	"Add new poll row": {
+		"prefix": "pollrow",
+		"body": [
+			"<tr>",
+			"\t<td class=\"label\"></td>",
+			"\t<td></td>",
+			"</tr>",
+		]
+	},
+	"Add new commentary": {
+		"prefix": "commentary",
+		"body": [
+			"<commentary date=\"\">",
+			"\t<h1></h1>",
+			"\t<p></p>",
+			"</commentary>"
+		]
+	},
+	"Add line break": {
+		"prefix": "br",
+		"body": "<br/>"
+	}
+}

@@ -31,13 +31,17 @@ timeline.querySelectorAll('source-link').forEach(e => {
 // #endregion
 
 // #region // add onclick event to items for autoscrolling
-timeline.querySelectorAll('event, poll').forEach(e => e.onclick = () => {
+timeline.querySelectorAll('event, poll').forEach(e => e.onclick = () => { scroll_to(e) });
+timeline.querySelectorAll('event, poll').forEach(e => e.classList.add('inactive'));
+// #endregion
+
+// #region // scroll to item
+function scroll_to(item) {
 	timeline.scrollTo({
-		left: e.offsetLeft - window.innerWidth/2 + item_w/2,
+		left: item.offsetLeft - window.innerWidth/2 + item_w/2,
 		behavior: 'smooth',
 	});
-});
-timeline.querySelectorAll('event, poll').forEach(e => e.classList.add('inactive'));
+}
 // #endregion
 
 // #region // select item closes to center
@@ -110,8 +114,26 @@ function set_background_image() {
 	let slugs = window.location.pathname.split('/');
 	let slug = slugs.pop();
 	while (slugs.length > 0 && slug.length <= 1) slug = slugs.pop();
-	trace(slug, window.location.pathname);
 	document.documentElement.style.setProperty('--bg-image', `url(${slug}/${bg_img})`);
 }
 set_background_image();
+// #endregion
+
+// #region // make internal links for nav
+var section_id = 0;
+document.querySelectorAll('.section').forEach(e => {
+	section_id++;
+	e.id = `section-${section_id}`;
+});
+function go_to_section(id) {
+	let section = document.querySelector(`#${id}`);
+	if (!section) return;
+	scroll_to(section);
+}
+function check_url_for_section() {
+	let params = new URLSearchParams(window.location.search);
+	if (!params.has('id')) return;
+	go_to_section('section-' + params.get('id'));
+}
+check_url_for_section();
 // #endregion
